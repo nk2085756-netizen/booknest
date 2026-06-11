@@ -1,0 +1,23 @@
+{
+  "overview": "BookNest is a modern online bookstore and digital library with a beautiful soft-toned design. Browse thousands of books, manage a personal wishlist, add items to your cart, and complete purchases — all in a responsive, elegant interface.",
+  "features": [
+    "Homepage with hero, featured book carousel, category grid, and testimonials",
+    "Book listing page with search, genre/price/rating filters, and sorting",
+    "Book details page with synopsis, user reviews, and action buttons",
+    "User accounts via Internet Identity with wishlist and purchase history",
+    "Shopping cart with quantity controls and full checkout flow",
+    "Order confirmation with order summary and estimated delivery"
+  ],
+  "category": "ecommerce",
+  "tags": [
+    "bookstore",
+    "library",
+    "ecommerce",
+    "books",
+    "reading",
+    "shop",
+    "catalog",
+    "wishlist"
+  ],
+  "last_updated": "2026-04-21T13:22:27.106Z"
+}

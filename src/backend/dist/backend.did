@@ -1,0 +1,71 @@
+type UserId = principal;
+type Timestamp = int;
+type Review = 
+ record {
+   bookId: text;
+   comment: text;
+   createdAt: Timestamp;
+   rating: float64;
+   reviewerName: text;
+ };
+type Result = 
+ variant {
+   err: text;
+   ok;
+ };
+type OrderStatus = 
+ variant {
+   cancelled;
+   confirmed;
+   delivered;
+   pending;
+   shipped;
+ };
+type OrderItem = 
+ record {
+   bookId: text;
+   price: float64;
+   qty: nat;
+   title: text;
+ };
+type Order = 
+ record {
+   createdAt: Timestamp;
+   id: text;
+   items: vec OrderItem;
+   status: OrderStatus;
+   total: float64;
+   userId: UserId;
+ };
+type Book = 
+ record {
+   author: text;
+   coverUrl: text;
+   description: text;
+   genre: text;
+   id: text;
+   inStock: bool;
+   isbn: text;
+   price: float64;
+   publishYear: nat;
+   rating: float64;
+   reviewCount: nat;
+   title: text;
+ };
+service : {
+  addReview: (bookId: text, reviewerName: text, rating: float64, comment:
+   text) -> (Result);
+  addToWishlist: (bookId: text) -> (Result);
+  getAllBooks: () -> (vec Book) query;
+  getBookById: (id: text) -> (opt Book) query;
+  getBooksByGenre: (genre: text) -> (vec Book) query;
+  getMyOrders: () -> (vec Order) query;
+  getReviews: (bookId: text) -> (vec Review) query;
+  getWishlist: () -> (vec Book) query;
+  placeOrder: (items: vec OrderItem) -> (variant {
+                                           err: text;
+                                           ok: Order;
+                                         });
+  removeFromWishlist: (bookId: text) -> (Result);
+  searchBooks: (searchTerm: text) -> (vec Book) query;
+}
